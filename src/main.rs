@@ -1,7 +1,7 @@
 use std::cmp::Ordering;
 use std::io;
-use colored::Colorize;
 
+use colored::Colorize;
 use rand::Rng;
 
 fn main() {
