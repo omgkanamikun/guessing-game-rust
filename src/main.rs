@@ -19,12 +19,15 @@ fn main() {
         io::stdin().read_line(&mut guess)
             .expect("error during parsing input");
 
-        let guess: u32 = match guess.trim().parse() {
+        let guess = match guess.trim().parse::<u32>() {
             Ok(num) => num,
-            Err(_) => continue,
+            Err(e) => {
+                println!("error: {}", e);
+                continue;
+            }
         };
 
-        println!("your guessed {}", guess);
+        println!("{} {guess}", "you guessed".bright_yellow());
 
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("{}", "too small".blue()),
